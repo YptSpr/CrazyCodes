@@ -27,8 +27,11 @@ public class HandlerTestActivity extends AppCompatActivity {
         initEvent();
 
         myThread = new LooperThread();
+        myThread.setName("myThread");
 
         myThread.start();
+
+
 
         myHandler = new Handler(myThread.getMyLooper()) {
             @Override
@@ -40,7 +43,7 @@ public class HandlerTestActivity extends AppCompatActivity {
                         break;
                     case 1:
                         Toast.makeText(getApplicationContext(), "Thread启动后，我收到一条Handler消息~", Toast.LENGTH_SHORT).show();
-                        Log.e("4test", "handleMessage: Thread-");
+                        Log.e("4test", "handleMessage: Thread-" + Thread.currentThread().getName());
                         break;
                 }
             }
@@ -52,8 +55,8 @@ public class HandlerTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myHandler.sendEmptyMessage(1);
-                Log.e("4test", "thread-"+android.os.Process.myTid());
-                Log.e("4test", "myThread-"+myThread.getId());
+                Log.e("4test", "thread-" + Thread.currentThread().getName());
+                Log.e("4test", "myThread-" + myThread.getName());
             }
         });
     }
@@ -63,16 +66,37 @@ public class HandlerTestActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * 实验用的类，加锁位置会卡主线程，参考{@link android.os.HandlerThread}
+     */
     private static class LooperThread extends Thread {
+
+        private Looper mLooper;
 
         @Override
         public void run() {
             Looper.prepare();
+            synchronized (LooperThread.this) {
+                if (null == mLooper) mLooper = Looper.myLooper();
+                LooperThread.this.notify();
+            }
+
+
             Looper.loop();
         }
 
         public Looper getMyLooper() {
-            return Looper.myLooper();
+            synchronized (LooperThread.this) {
+                if (mLooper == null) {
+                    try {
+                        LooperThread.this.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            return mLooper;
         }
     }
 
