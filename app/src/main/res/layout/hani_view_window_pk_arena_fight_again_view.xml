@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_pk_arena_fight_again"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/hani_window_view_pk_arena_fight_again_bg"
+        android:gravity="center"
+        android:text="再来一局"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+</merge>

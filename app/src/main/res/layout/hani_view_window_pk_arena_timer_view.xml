@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_pk_arena_title_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="11dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/hani_pk_arena_window_view_timer_vs" />
+
+    <TextView
+        android:id="@+id/tv_pk_arena_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@id/iv_pk_arena_title_icon"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/iv_pk_arena_timer_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="4dp"
+        android:src="@drawable/hani_pk_arena_window_view_timer_close" />
+
+    <TextView
+        android:id="@+id/tv_pk_arena_crit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="星光翻倍时间(2倍)"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        android:visibility="gone" />
+</RelativeLayout>

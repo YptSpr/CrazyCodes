@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="voiceRippleLine">
+        <attr name="minWidth" format="dimension" />
+        <attr name="maxWidth" format="dimension" />
+        <attr name="maxHeight" format="dimension" />
+        <attr name="normalRadio" format="integer" />
+        <attr name="paintSize" format="dimension" />
+        <attr name="maxLine" format="integer" />
+        <attr name="paintColor" format="color" />
+        <attr name="panding" format="dimension" />
+    </declare-styleable>
+</resources>

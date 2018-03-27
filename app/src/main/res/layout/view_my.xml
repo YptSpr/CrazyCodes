@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <LinearLayout
+        android:id="@+id/ll_my"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        >
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@android:color/holo_blue_bright" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_icon"
+            android:layout_marginTop="50dp"
+            android:singleLine="true"
+            android:text="我就是一段测试文字，我没有任何作用，请不用多想"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</merge>

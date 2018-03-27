@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="@string/event_test"
+        android:textSize="20sp" />
+
+    <com.example.spr_ypt.crazycodes.pkpicker.PkScoreBoardView
+        android:id="@+id/psbv_test"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="245dp" />
+
+    <com.example.spr_ypt.crazycodes.pkpicker.PkArenaOpponentInfoView
+        android:id="@+id/paoiv_test"
+        android:layout_width="130.5dp"
+        android:layout_height="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="275dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone" />
+
+    <com.example.spr_ypt.crazycodes.pkpicker.PkArenaOpponentGiftView
+        android:id="@+id/paogv_test"
+        android:layout_width="68dp"
+        android:layout_height="95dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="210dp"
+        android:visibility="gone"
+        />
+
+
+    <com.example.spr_ypt.crazycodes.pkpicker.PkArenaTimerWindowView
+        android:id="@+id/timer_test"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="131.5dp"
+
+        />
+
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:id="@+id/relay_score_iv"
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+</RelativeLayout>

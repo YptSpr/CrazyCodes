@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130.5dp"
+    android:layout_height="36dp">
+
+    <ImageView
+        android:id="@+id/pk_arena_opponent_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="2dp"
+        android:background="@color/colorAccent"
+        android:scaleType="centerCrop" />
+
+    <RelativeLayout
+        android:id="@+id/pk_arena_info_ll"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/pk_arena_opponent_icon"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/pk_arena_info_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:maxWidth="80dp"
+            android:textColor="@android:color/white"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/pk_arena_info_combo"
+            android:layout_width="33dp"
+            android:layout_height="12dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/pk_arena_info_first"
+            android:background="#007aff"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="8dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/pk_arena_info_follow_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="2dp"
+            android:clickable="true"
+            android:src="@drawable/hani_icon_pk_arena_opponent_info_plus"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/pk_arena_info_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="19dp"
+        android:layout_toRightOf="@id/pk_arena_opponent_icon"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:maxWidth="80dp"
+        android:text="3胜1负1平"
+        android:textColor="#99ffffff"
+        android:textSize="11dp" />
+
+</merge>

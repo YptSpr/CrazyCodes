@@ -1,0 +1,23 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<com.example.spr_ypt.crazycodes.test4Layout.MyView-->
+        <!--android:id="@+id/mv_test"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></com.example.spr_ypt.crazycodes.test4Layout.MyView>-->
+
+    <com.example.spr_ypt.crazycodes.pkpicker.PkArenaOpponentInfoView
+        android:id="@+id/paoiv_test"
+        android:layout_width="130.5dp"
+        android:layout_height="36dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="248dp"
+        >
+
+    </com.example.spr_ypt.crazycodes.pkpicker.PkArenaOpponentInfoView>
+
+</RelativeLayout>

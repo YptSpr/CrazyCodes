@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CrazyCodes</string>
+    <string name="event_test">我是一个测试按钮</string>
+
+    <string name="hani_pk_arena_pk_history_title">过往相会战绩</string>
+    <string name="pk_arena_popup_enter_title">PK堂</string>
+    <string name="pk_arena_popup_enter_random">随机对抗</string>
+    <string name="pk_arena_popup_enter_random_auto">自动匹配</string>
+    <string name="pk_arena_popup_enter_invite">邀请好友</string>
+    <string name="pk_arena_popup_enter_thumb">星光对抗</string>
+    <string name="pk_arena_popup_enter_thumb_tip">非联屏对抗</string>
+    <string name="pk_arena_popup_random_cancel">取消</string>
+    <string name="pk_arena_popup_random_count">开始倒计时...%s</string>
+    <string name="pk_arena_popup_enter_invite_num">%s人邀请您</string>
+    <string name="pk_arena_popup_enter_fight_history">您的战绩·%s连胜</string>
+</resources>

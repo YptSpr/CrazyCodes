@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:molive="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_multiple"
+        android:layout_width="40dp"
+        android:layout_height="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27.5dp"
+        android:background="@drawable/hani_pk_arena_window_opponent_gift_multiple_bg"
+        android:drawableLeft="@drawable/hani_pk_arena_window_opponent_gift_multiple_icon"
+        android:drawablePadding="1dp"
+        android:gravity="left"
+        android:paddingLeft="4dp"
+        android:text="x1.3"
+        android:textColor="@android:color/white"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/iv_opponent_gift"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/tv_multiple"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/box" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lav_stars"
+        android:layout_width="67.5dp"
+        android:layout_height="70dp"
+        molive:lottie_fileName="starBurst.json"
+        molive:lottie_loop="false" />
+
+</merge>

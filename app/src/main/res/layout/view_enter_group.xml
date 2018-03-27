@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/group_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:columnCount="3"
+    android:background="@android:color/holo_red_dark"
+    android:useDefaultMargins="true"
+    android:layout_margin="2dp"
+    >
+    <TextView
+        android:id="@+id/group_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我是一个标题"
+        android:layout_columnSpan="3"
+        />
+
+</GridLayout>
