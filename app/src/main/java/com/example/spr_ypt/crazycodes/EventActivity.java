@@ -1,6 +1,9 @@
 package com.example.spr_ypt.crazycodes;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,6 +20,9 @@ import com.example.spr_ypt.crazycodes.pkpicker.PkArenaOpponentGiftView;
 import com.example.spr_ypt.crazycodes.pkpicker.PkArenaOpponentInfoView;
 import com.example.spr_ypt.crazycodes.pkpicker.PkArenaTimerWindowView;
 import com.example.spr_ypt.crazycodes.pkpicker.PkScoreBoardView;
+import com.example.spr_ypt.crazycodes.rankedGame.BottomLineProgressDrawable;
+import com.example.spr_ypt.crazycodes.rankedGame.GameProgressDrawable;
+import com.example.spr_ypt.crazycodes.rankedGame.RoundRectDrawableFactory;
 import com.example.spr_ypt.crazycodes.relay.PkRelayProgressDrawable;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -36,7 +42,7 @@ public class EventActivity extends Activity implements View.OnClickListener {
     private PkArenaTimerWindowView mTimerTest;
     private PkArenaOpponentGiftView mPaogvTest;
     private ImageView mRelayScoreIv;
-    private PkRelayProgressDrawable mRelayDrawable;
+    private BottomLineProgressDrawable mRelayDrawable;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -95,9 +101,17 @@ public class EventActivity extends Activity implements View.OnClickListener {
         mTimerTest = (PkArenaTimerWindowView) findViewById(R.id.timer_test);
         mPaogvTest = (PkArenaOpponentGiftView) findViewById(R.id.paogv_test);
         mRelayScoreIv = (ImageView) findViewById(R.id.relay_score_iv);
-        mRelayDrawable = new PkRelayProgressDrawable();
-        mRelayScoreIv.setImageDrawable(mRelayDrawable);
-        mRelayDrawable.setOurRound();
+        mRelayDrawable = new BottomLineProgressDrawable(Color.parseColor("#ff0000"),Color.parseColor("#cc00ef"),30f,0.1f);
+        mRelayScoreIv.setImageDrawable(RoundRectDrawableFactory.getLeftBottomDrawable(30,Color.RED));
+//        mRelayDrawable.setOurRound();
+
+        mRelayDrawable.setAnimListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                Toast.makeText(getApplicationContext(),"时间到~！",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     int index;
@@ -109,6 +123,8 @@ public class EventActivity extends Activity implements View.OnClickListener {
                 float f = (float) Math.random();
                 NotifyDispatcher.dispatch(new TestEvent(1, getApplicationContext().getString(R.string.event_test) + f));
                 mPsbvTest.setScore((int) (1000000 * f), (int) (1000000 * (1 - f)));
+                mRelayDrawable.startAnim(5000);
+//                mRelayDrawable.setRate(f);
 
                 Log.e("spr_ypt", "onClick: index=" + index);
                 switch (index) {
@@ -128,10 +144,10 @@ public class EventActivity extends Activity implements View.OnClickListener {
                 index = (index + 1) % 4;
                 if (index % 2 == 0) {
                     mPaogvTest.startAnim(true);
-                    mRelayDrawable.setOurRound();
+//                    mRelayDrawable.setOurRound();
                 } else {
                     mPaogvTest.endAnim();
-                    mRelayDrawable.setOtherRound();
+//                    mRelayDrawable.setOtherRound();
                 }
                 break;
         }
