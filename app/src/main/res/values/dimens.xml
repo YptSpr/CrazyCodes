@@ -17,5 +17,6 @@
     <dimen name="demin_105_5dp">105.5dp</dimen>
     <dimen name="demin_100dp">100dp</dimen>
     <dimen name="demin_120dp">120dp</dimen>
+    <dimen name="demin_8dp">8dp</dimen>
 
 </resources>

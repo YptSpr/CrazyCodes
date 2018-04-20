@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.spr_ypt.crazycodes.eventCenter.dispatcher.NotifyDispatcher;
@@ -23,7 +24,6 @@ import com.example.spr_ypt.crazycodes.pkpicker.PkScoreBoardView;
 import com.example.spr_ypt.crazycodes.rankedGame.BottomLineProgressDrawable;
 import com.example.spr_ypt.crazycodes.rankedGame.GameProgressDrawable;
 import com.example.spr_ypt.crazycodes.rankedGame.RoundRectDrawableFactory;
-import com.example.spr_ypt.crazycodes.relay.PkRelayProgressDrawable;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -43,6 +43,8 @@ public class EventActivity extends Activity implements View.OnClickListener {
     private PkArenaOpponentGiftView mPaogvTest;
     private ImageView mRelayScoreIv;
     private BottomLineProgressDrawable mRelayDrawable;
+    private GameProgressDrawable mGameDrawable;
+    private TextView mTvRankedGame;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -101,15 +103,18 @@ public class EventActivity extends Activity implements View.OnClickListener {
         mTimerTest = (PkArenaTimerWindowView) findViewById(R.id.timer_test);
         mPaogvTest = (PkArenaOpponentGiftView) findViewById(R.id.paogv_test);
         mRelayScoreIv = (ImageView) findViewById(R.id.relay_score_iv);
-        mRelayDrawable = new BottomLineProgressDrawable(Color.parseColor("#ff0000"),Color.parseColor("#cc00ef"),30f,0.1f);
-        mRelayScoreIv.setImageDrawable(RoundRectDrawableFactory.getLeftBottomDrawable(30,Color.RED));
+        mTvRankedGame = (TextView) findViewById(R.id.tv_ranked_game);
+        mRelayDrawable = new BottomLineProgressDrawable(Color.parseColor("#ff0000"), Color.parseColor("#cc00ef"), 30f, 0.1f);
+        mRelayScoreIv.setImageDrawable(RoundRectDrawableFactory.getRightBottomDrawable(30, Color.RED));
+        mGameDrawable=new GameProgressDrawable(0.03f,Color.parseColor("#33ffffff"),Color.parseColor("#ff2d55"),Color.parseColor("#ff2d55"));
 //        mRelayDrawable.setOurRound();
-
+//        mTvRankedGame.setBackground(mRelayDrawable);
+        mTvRankedGame.setBackground(RoundRectDrawableFactory.getLeftCotDrawable(30,0.5f,Color.BLUE));
         mRelayDrawable.setAnimListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                Toast.makeText(getApplicationContext(),"时间到~！",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "时间到~！", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -123,8 +128,11 @@ public class EventActivity extends Activity implements View.OnClickListener {
                 float f = (float) Math.random();
                 NotifyDispatcher.dispatch(new TestEvent(1, getApplicationContext().getString(R.string.event_test) + f));
                 mPsbvTest.setScore((int) (1000000 * f), (int) (1000000 * (1 - f)));
-                mRelayDrawable.startAnim(5000);
+                mRelayDrawable.startAnim(0.8f,5000);
 //                mRelayDrawable.setRate(f);
+                mGameDrawable.setRate(f);
+//                mGameDrawable.setRateNoAnim(1f);
+//                mGameDrawable.setRate(0f,50000);
 
                 Log.e("spr_ypt", "onClick: index=" + index);
                 switch (index) {
@@ -143,9 +151,11 @@ public class EventActivity extends Activity implements View.OnClickListener {
                 }
                 index = (index + 1) % 4;
                 if (index % 2 == 0) {
+//                    mGameDrawable.setFrontColor(Color.YELLOW);
                     mPaogvTest.startAnim(true);
 //                    mRelayDrawable.setOurRound();
                 } else {
+//                    mGameDrawable.setFrontColor(Color.BLUE);
                     mPaogvTest.endAnim();
 //                    mRelayDrawable.setOtherRound();
                 }

@@ -10,6 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:text="@string/event_test"
+
         android:textSize="20sp" />
 
     <com.example.spr_ypt.crazycodes.pkpicker.PkScoreBoardView
@@ -57,5 +58,18 @@
         android:layout_marginBottom="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/tv_ranked_game"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="我就是一个测试文本"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:layerType="hardware"
+        />
 
 </RelativeLayout>
