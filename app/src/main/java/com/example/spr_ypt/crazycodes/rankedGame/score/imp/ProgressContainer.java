@@ -7,6 +7,7 @@ import android.animation.ValueAnimator;
 import android.graphics.Color;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.RelativeLayout;
 
 import com.example.spr_ypt.crazycodes.R;
 import com.example.spr_ypt.crazycodes.rankedGame.GameProgressDrawable;
@@ -32,12 +33,15 @@ public class ProgressContainer extends AbsScoreContainer {
     @Override
     public void onDataChanged() {
         mViewHolder.mTvProgress.setText("斩杀");
-        mViewHolder.mIvProgressIcon.setImageResource(R.drawable.box);
+        mViewHolder.mIvProgressIcon.setImageResource(R.drawable.hani_ranked_game_score_progress_icon);
+        if (mViewHolder.mIvProgressIcon.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            ((RelativeLayout.LayoutParams) mViewHolder.mIvProgressIcon.getLayoutParams()).leftMargin = 20;
+            mViewHolder.mIvProgressIcon.invalidate();
+        }
 
         mViewHolder.mTvProgressTxt.setText("520/1000");
 
         resetScoreInfo();
-
 
         resetProgressDrawable();
     }

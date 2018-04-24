@@ -162,6 +162,7 @@ public class ScoreViewHolder {
 
         Typeface fontType = GlobalData.getInstance().getFontType();
         if (null != fontType) {
+            mTvProgressTxt.setTypeface(fontType);
             mTvAnchorScore.setTypeface(fontType);
             mTvOpponentScore.setTypeface(fontType);
             mTvScoreCountdown.setTypeface(fontType);
