@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 
-
 import com.example.spr_ypt.crazycodes.R;
 import com.example.spr_ypt.crazycodes.rankedGame.BottomLineProgressDrawable;
 import com.example.spr_ypt.crazycodes.rankedGame.GameProgressDrawable;
@@ -32,30 +31,27 @@ public class EggsContainer extends AbsScoreContainer {
 
     @Override
     public void onDataChanged() {
-            mViewHolder.mIvEggsAnchorIcon.setImageResource(R.drawable.hani_pk_arena_popup_random_scroll_icon_0);
-            mViewHolder.mIvEggsOpponentIcon.setImageResource(R.drawable.hani_pk_arena_popup_random_scroll_icon_1);
-            mViewHolder.mTvEggsAnchorScore.setText("520/1000");
-            mViewHolder.mTvEggsOpponentScore.setText("520/1000");
-      
-            float anchorRate = 0.5f;
-            if (null != anchorDrawable) anchorDrawable.setRate(anchorRate);
-       
-            float oppRate = 0.5f;
-            if (null != opponentDrawable) opponentDrawable.setRate(oppRate);
-        
+        mViewHolder.mIvEggsAnchorIcon.setImageResource(R.drawable.hani_pk_arena_popup_random_scroll_icon_0);
+        mViewHolder.mIvEggsOpponentIcon.setImageResource(R.drawable.hani_pk_arena_popup_random_scroll_icon_1);
+        mViewHolder.mTvEggsAnchorScore.setText("520/1000");
+        mViewHolder.mTvEggsOpponentScore.setText("520/1000");
 
-                mViewHolder.mTvEggsScore.setText("领先\n" +"100万");
-                mViewHolder.mTvEggsScore.setText("落后\n" +"100万");
-        
+        float anchorRate = 0.5f;
+        if (null != anchorDrawable) anchorDrawable.setRate(anchorRate);
+
+        float oppRate = 0.5f;
+        if (null != opponentDrawable) opponentDrawable.setRate(oppRate);
+
+
+        mViewHolder.mTvEggsScore.setText("领先\n" + "100万");
+        mViewHolder.mTvEggsScore.setText("落后\n" + "100万");
 
 
     }
 
-   
 
     @Override
     public void changeAnim(List<View> views, final View rootView) {
-        if (null == views || views.size() == 0) return;
 
         RankedGameUtils.setViewsVisible(View.VISIBLE, getShowViews());
         //设置背景
@@ -69,7 +65,7 @@ public class EggsContainer extends AbsScoreContainer {
         //加载分数区域背景
         mViewHolder.mTvEggsScore.setBackgroundDrawable(RoundRectDrawableFactory.getRightDrawable(24, Color.parseColor("#0c000000")));
         //设置进度条
-        bottomLineProgressDrawable.startAnim(0.8f,5000);
+        bottomLineProgressDrawable.startAnim(0.8f, 5000);
 
 
         anchorDrawable = new GameProgressDrawable(0.1f, RankedGameUtils.parseColor("#33ffffff"), RankedGameUtils.parseColor("#ff2d55"));
@@ -102,7 +98,8 @@ public class EggsContainer extends AbsScoreContainer {
     @Override
     public void dropAnim(List<View> views, View rootView) {
         RankedGameUtils.setViewsVisible(View.GONE, views);
-        if (null != mEggsAnim && mEggsAnim.isRunning()){ mEggsAnim.cancel();
+        if (null != mEggsAnim && mEggsAnim.isRunning()) {
+            mEggsAnim.cancel();
             for (View v : mViewHolder.eggsAnchorViews) {
                 v.setTranslationX(0);
             }
