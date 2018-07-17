@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.spr_ypt.crazycodes"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -25,11 +25,12 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation project(':imageviews')
     androidTestImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:percent:26.1.0'
+    implementation 'com.android.support:percent:27.1.1'
     //引入百分比库
     implementation 'org.greenrobot:eventbus:3.1.0-RC'
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
-    implementation 'com.android.support:leanback-v17:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:leanback-v17:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.airbnb.android:lottie:2.5.6'
 }

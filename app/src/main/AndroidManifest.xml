@@ -44,6 +44,10 @@
         <activity android:name=".HandlerTestActivity">
         </activity>
         <activity android:name=".RankedGameActivity">
+
+        </activity>
+
+        <activity android:name=".LottieActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
