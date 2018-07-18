@@ -5,7 +5,7 @@ android {
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.spr_ypt.crazycodes"
-        minSdkVersion 26
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -32,5 +32,5 @@ dependencies {
     implementation 'com.android.support:leanback-v17:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.airbnb.android:lottie:2.5.6'
+    implementation 'com.airbnb.android:lottie:2.2.0'
 }
