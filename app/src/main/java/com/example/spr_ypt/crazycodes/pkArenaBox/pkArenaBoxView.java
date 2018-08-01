@@ -71,9 +71,9 @@ public class pkArenaBoxView extends FrameLayout {
      * 切换到小图标模式
      */
     public void changeToSmall() {
+        if (null != mChangeAnim && mChangeAnim.isRunning()) mChangeAnim.cancel();
         mTvBoxLine1.setVisibility(GONE);
         mTvBoxLine2.setVisibility(GONE);
-        if (null != mChangeAnim && mChangeAnim.isRunning()) mChangeAnim.cancel();
         int startWidth = getLayoutParams().width;
         int endWidth = (int) getResources().getDimension(R.dimen.demin_36dp);
         mChangeAnim = ObjectAnimator.ofInt(startWidth, endWidth);
@@ -101,9 +101,9 @@ public class pkArenaBoxView extends FrameLayout {
      * 切换到大图标模式
      */
     public void changeToBig() {
+        if (null != mChangeAnim && mChangeAnim.isRunning()) mChangeAnim.cancel();
         mTvBoxTitle.setVisibility(GONE);
         setBackgroundResource(R.drawable.hani_window_view_pk_arena_box_bg);
-        if (null != mChangeAnim && mChangeAnim.isRunning()) mChangeAnim.cancel();
         int startWidth = getLayoutParams().width;
         int endWidth = (int) getResources().getDimension(R.dimen.demin_130dp);
         mChangeAnim = ObjectAnimator.ofInt(startWidth, endWidth);
@@ -127,7 +127,7 @@ public class pkArenaBoxView extends FrameLayout {
 
     }
 
-    public void setProgressRate(@FloatRange(from = 0.0f,to = 1.0f) float rate){
+    public void setProgressRate(@FloatRange(from = 0.0f, to = 1.0f) float rate) {
         mProgressDrawable.setRate(rate);
     }
 
@@ -152,6 +152,7 @@ public class pkArenaBoxView extends FrameLayout {
 
     public void recycle() {
         if (null != mChangeAnim && mChangeAnim.isRunning()) mChangeAnim.cancel();
+        mProgressDrawable.recycle();
         resetView();
     }
 }
