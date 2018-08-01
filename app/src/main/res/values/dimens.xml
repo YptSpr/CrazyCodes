@@ -6,6 +6,7 @@
     <dimen name="demin_94dp">94dp</dimen>
     <dimen name="demin_24dp">24dp</dimen>
     <dimen name="demin_130_5dp">130.5dp</dimen>
+    <dimen name="demin_130dp">130dp</dimen>
     <dimen name="demin_36dp">36dp</dimen>
     <dimen name="demin_32dp">32dp</dimen>
     <dimen name="demin_20dp">20dp</dimen>

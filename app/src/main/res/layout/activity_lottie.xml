@@ -9,8 +9,9 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         lottie:lottie_autoPlay="true"
-        lottie:lottie_fileName="vs_small400x200px.json"
-        lottie:lottie_imageAssetsFolder="lottieimages/rankedGameStart"
-        lottie:lottie_loop="true" />
+        lottie:lottie_fileName="pk_game_start.json"
+        lottie:lottie_imageAssetsFolder="lottieimages/pkGameStart"
+        lottie:lottie_loop="true"
+        />
 
 </FrameLayout>
