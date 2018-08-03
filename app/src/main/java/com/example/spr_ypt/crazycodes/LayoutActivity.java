@@ -86,7 +86,9 @@ public class LayoutActivity extends Activity {
                 }
                 mVBox.setProgressRate((float) Math.random());
                 mRoatateDrawable.startCountDown(0, 3000);//4test
+
                 mVBoxV2.setVisibility(View.VISIBLE);
+                mVBoxV2.reset();
                 mVBoxV2.setScaleX(0f);
                 mVBoxV2.setScaleY(0f);
                 mVBoxV2.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(new OvershootInterpolator()).setDuration(300).start();
