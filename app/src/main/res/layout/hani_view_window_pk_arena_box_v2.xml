@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.example.spr_ypt.crazycodes.pkArenaBox.PkArenaBoxBgView
+        android:id="@+id/v_box_bg"
+        android:layout_width="375dp"
+        android:layout_height="280dp"
+        android:layout_gravity="bottom" />
+
+
+    <ImageView
+        android:id="@+id/iv_box_icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/box" />
+
+    <TextView
+        android:id="@+id/tv_box_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="170.5dp"
+        android:text="惊现[道具卡]宝箱"
+        android:textColor="#f8e71c"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_box_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="201.5dp"
+        android:gravity="center"
+        android:lineSpacingExtra="5sp"
+        android:maxLines="3"
+        android:maxWidth="220dp"
+        android:text="双方星光总值达到35000即可解锁宝箱胜者获得宝箱里所有的PK道具"
+        android:textColor="@android:color/white"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_box_info"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="24dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="我就是一行在行走的跑马灯"
+        android:textSize="12sp"
+        android:visibility="invisible" />
+
+
+</merge>

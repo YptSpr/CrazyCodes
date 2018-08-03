@@ -43,4 +43,13 @@
         android:layout_marginTop="410dp"
         android:background="@drawable/hani_icon_conn_thumb_tag" />
 
+
+    <com.example.spr_ypt.crazycodes.pkArenaBox.PkArenaBoxViewV2
+        android:id="@+id/v_box_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
 </RelativeLayout>
