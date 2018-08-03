@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Html;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.spr_ypt.crazycodes.pkArenaBox.CircleRotateProgressDrawable;
 import com.example.spr_ypt.crazycodes.pkArenaBox.pkArenaBoxView;
 import com.example.spr_ypt.crazycodes.pkpicker.PkArenaOpponentInfoView;
 
@@ -21,6 +23,8 @@ public class LayoutActivity extends Activity {
     private PkArenaOpponentInfoView mPaoivTest;
     private TextView mTvHtmlTest;
     private pkArenaBoxView mVBox;
+    private ImageView mIvBuff;
+    private CircleRotateProgressDrawable mRoatateDrawable;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +39,9 @@ public class LayoutActivity extends Activity {
         mTvHtmlTest = (TextView) findViewById(R.id.tv_html_test);
         mTvHtmlTest.setText(Html.fromHtml("我是<font color='#e87400'>测试</font>的文案"));
         mVBox = (pkArenaBoxView) findViewById(R.id.v_box);
+        mIvBuff = (ImageView) findViewById(R.id.iv_buff);
+        mRoatateDrawable = new CircleRotateProgressDrawable();//4test
+        mIvBuff.setImageDrawable(mRoatateDrawable);//4test
     }
 
     private void initEvent() {
@@ -53,18 +60,25 @@ public class LayoutActivity extends Activity {
         mPaoivTest.show();
 
         mVBox.setOnClickListener(new View.OnClickListener() {
-            private boolean isBig;
+            private int index;
 
             @Override
             public void onClick(View v) {
-                if (isBig) {
-                    mVBox.changeToSmall();
-                    isBig = false;
-                } else {
-                    mVBox.changeToBig();
-                    isBig = true;
+                index = ++index % 3;
+                switch (index) {
+                    case 0:
+                        mVBox.changeToSmall();
+                        break;
+                    case 1:
+                        mVBox.changeToBig();
+                        mVBox.setTextLine("联屏PK夺宝","差<font color='#f8e71c'>10000</font>星光值开启宝箱");
+                        break;
+                    case 2:
+                        mVBox.changeTextLine("宝箱已开启","我是<font color='#e87400'>测试</font>的文案");
+                        break;
                 }
                 mVBox.setProgressRate((float) Math.random());
+                mRoatateDrawable.startCountDown(0, 3000);//4test
             }
         });
     }

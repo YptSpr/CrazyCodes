@@ -10,8 +10,10 @@ import android.support.annotation.FloatRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ public class pkArenaBoxView extends FrameLayout {
     private TextView mTvBoxLine2;
     private ValueAnimator mChangeAnim;
     private CircleVerticalProgressDrawable mProgressDrawable;
+    private ValueAnimator mScrollAnim;
 
     public pkArenaBoxView(@NonNull Context context) {
         super(context);
@@ -55,7 +58,6 @@ public class pkArenaBoxView extends FrameLayout {
         initView();
         resetView();
     }
-
 
     private void initView() {
         mIvBoxIcon = (ImageView) mRootView.findViewById(R.id.iv_box_icon);
@@ -95,6 +97,7 @@ public class pkArenaBoxView extends FrameLayout {
         });
         mChangeAnim.start();
 
+
     }
 
     /**
@@ -108,6 +111,7 @@ public class pkArenaBoxView extends FrameLayout {
         int endWidth = (int) getResources().getDimension(R.dimen.demin_130dp);
         mChangeAnim = ObjectAnimator.ofInt(startWidth, endWidth);
         mChangeAnim.setDuration(ANIM_DURATION);
+        mChangeAnim.setInterpolator(new OvershootInterpolator());
         mChangeAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -121,16 +125,45 @@ public class pkArenaBoxView extends FrameLayout {
                 super.onAnimationEnd(animation);
                 mTvBoxLine1.setVisibility(VISIBLE);
                 mTvBoxLine2.setVisibility(VISIBLE);
+
             }
         });
         mChangeAnim.start();
 
     }
 
+    /**
+     * 设置文本文案
+     *
+     * @param line1
+     * @param line2
+     */
+    public void setTextLine(String line1, String line2) {
+        mTvBoxLine1.setText(Html.fromHtml(line1));
+        mTvBoxLine2.setText(Html.fromHtml(line2));
+
+    }
+
+    /**
+     * 设置文本文案并翻页
+     *
+     * @param line1
+     * @param line2
+     */
+    public void changeTextLine(String line1, String line2) {
+        mScrollAnim = ObjectAnimator.ofInt(0, getHeight());
+        mScrollAnim.setRepeatCount(1);
+        mScrollAnim.setRepeatMode(ValueAnimator.REVERSE);
+        mScrollAnim.setDuration(100);
+        ScrollAnimListener mListener = new ScrollAnimListener(line1, line2);
+        mScrollAnim.addUpdateListener(mListener);
+        mScrollAnim.addListener(mListener);
+        mScrollAnim.start();
+    }
+
     public void setProgressRate(@FloatRange(from = 0.0f, to = 1.0f) float rate) {
         mProgressDrawable.setRate(rate);
     }
-
 
     private void resetView() {
         setBackground(null);
@@ -149,10 +182,34 @@ public class pkArenaBoxView extends FrameLayout {
         setLayoutParams(params);
     }
 
-
     public void recycle() {
         if (null != mChangeAnim && mChangeAnim.isRunning()) mChangeAnim.cancel();
         mProgressDrawable.recycle();
         resetView();
+    }
+
+    private class ScrollAnimListener extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
+        private String line1;
+        private String line2;
+        private int indexY = 1;
+
+        public ScrollAnimListener(String line1, String line2) {
+            this.line1 = line1;
+            this.line2 = line2;
+        }
+
+        @Override
+        public void onAnimationUpdate(ValueAnimator animation) {
+            int translateY = indexY * (int) animation.getAnimatedValue();
+            mTvBoxLine1.setTranslationY(translateY);
+            mTvBoxLine2.setTranslationY(translateY);
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+            super.onAnimationRepeat(animation);
+            setTextLine(line1, line2);
+            indexY = -1;
+        }
     }
 }

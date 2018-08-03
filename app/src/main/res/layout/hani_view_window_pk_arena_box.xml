@@ -1,63 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="130dp" android:layout_height="36dp"
-    >
+    android:layout_width="130dp"
+    android:layout_height="36dp">
+
     <ImageView
         android:id="@+id/iv_box_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginLeft="2dp"
-        android:src="@drawable/box"
         android:layout_gravity="center_vertical"
-        />
+        android:layout_marginLeft="2dp"
+        android:src="@drawable/box" />
+
     <ImageView
         android:id="@+id/iv_box_icon_mask"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginLeft="2dp"
-        android:layout_gravity="center_vertical"/>
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="2dp" />
+
     <TextView
         android:id="@+id/tv_box_title"
         android:layout_width="32dp"
         android:layout_height="12dp"
-        android:gravity="center"
         android:layout_gravity="bottom"
-        android:textSize="8sp"
-        android:textColor="@android:color/white"
-        android:text="PK夺宝"
-        android:background="@drawable/hani_window_view_pk_arena_box_title_bg"
         android:layout_marginLeft="2dp"
-        />
+        android:background="@drawable/hani_window_view_pk_arena_box_title_bg"
+        android:gravity="center"
+        android:text="PK夺宝"
+        android:textColor="@android:color/white"
+        android:textSize="8sp" />
 
     <TextView
         android:id="@+id/tv_box_line_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="90dp"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:ellipsize="marquee"
-        android:singleLine="true"
-        android:textColor="@android:color/white"
-        android:textSize="12sp"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="3dp"
+        android:ellipsize="end"
+        android:maxWidth="90dp"
+        android:singleLine="true"
         android:text="联屏PK夺宝"
-        />
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
     <TextView
         android:id="@+id/tv_box_line_2"
-        android:layout_width="wrap_content"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:maxWidth="90dp"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:ellipsize="marquee"
-        android:singleLine="true"
-        android:textColor="@android:color/white"
-        android:alpha="0.8"
-        android:textSize="10sp"
-        android:layout_marginLeft="38dp"
-        android:layout_marginBottom="3dp"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="38dp"
+        android:alpha="0.8"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:text="胜者获得宝箱全部奖励"
-        />
+        android:textColor="@android:color/white"
+        android:textSize="10sp" />
 
 </merge>
