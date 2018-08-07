@@ -38,7 +38,7 @@ public class PkArenaBoxBgView extends View {
     public void setIndex(float index) {
         this.index = index;
         if (null != getLayoutParams()) {
-            int width = (int) (getResources().getDimension(R.dimen.demin_120dp) + index * getResources().getDimension(R.dimen.demin_255dp));
+            int width = (int) (getResources().getDimension(R.dimen.demin_140dp) + index * getResources().getDimension(R.dimen.demin_235dp));
             int height = (int) (getResources().getDimension(R.dimen.demin_20dp) + index * getResources().getDimension(R.dimen.demin_260dp));
             getLayoutParams().width = width;
             getLayoutParams().height = height;

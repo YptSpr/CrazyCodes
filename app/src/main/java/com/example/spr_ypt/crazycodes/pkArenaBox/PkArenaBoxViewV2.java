@@ -100,7 +100,7 @@ public class PkArenaBoxViewV2 extends FrameLayout {
             mIvBoxIcon.getLayoutParams().width = (int) (getResources().getDimension(R.dimen.demin_36dp) + index * getResources().getDimension(R.dimen.demin_114dp));
             mIvBoxIcon.getLayoutParams().height = (int) (getResources().getDimension(R.dimen.demin_36dp) + index * getResources().getDimension(R.dimen.demin_114dp));
             if (mIvBoxIcon.getLayoutParams() instanceof MarginLayoutParams) {
-                ((MarginLayoutParams) mIvBoxIcon.getLayoutParams()).setMargins(0, (int) (index * getResources().getDimension(R.dimen.demin_15dp)), 0, (int) getResources().getDimension(R.dimen.demin_40dp));
+                ((MarginLayoutParams) mIvBoxIcon.getLayoutParams()).setMargins(0, (int) (index * getResources().getDimension(R.dimen.demin_15dp)), 0, (int) getResources().getDimension(R.dimen.demin_45dp));
             }
         }
 

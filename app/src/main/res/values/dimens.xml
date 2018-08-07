@@ -18,11 +18,14 @@
     <dimen name="demin_105_5dp">105.5dp</dimen>
     <dimen name="demin_100dp">100dp</dimen>
     <dimen name="demin_120dp">120dp</dimen>
+    <dimen name="demin_140dp">140dp</dimen>
     <dimen name="demin_114dp">114dp</dimen>
     <dimen name="demin_255dp">255dp</dimen>
+    <dimen name="demin_235dp">235dp</dimen>
     <dimen name="demin_260dp">260dp</dimen>
     <dimen name="demin_8dp">8dp</dimen>
     <dimen name="demin_40dp">40dp</dimen>
     <dimen name="demin_15dp">15dp</dimen>
+    <dimen name="demin_45dp">45dp</dimen>
 
 </resources>
