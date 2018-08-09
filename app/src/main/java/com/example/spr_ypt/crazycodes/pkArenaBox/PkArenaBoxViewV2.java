@@ -5,10 +5,13 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
@@ -26,6 +29,8 @@ public class PkArenaBoxViewV2 extends FrameLayout {
     private TextView mTvBoxInfo;
     private PkArenaBoxBgView mVBoxBg;
     private ValueAnimator mAnim;
+    private BoxRotateRayView mVRotateRay;
+    private Handler mDelayHandler = new Handler();
 
     public PkArenaBoxViewV2(@NonNull Context context) {
         super(context);
@@ -58,10 +63,42 @@ public class PkArenaBoxViewV2 extends FrameLayout {
         mTvBoxTitle = (TextView) mRootView.findViewById(R.id.tv_box_title);
         mTvBoxDesc = (TextView) mRootView.findViewById(R.id.tv_box_desc);
         mTvBoxInfo = (TextView) mRootView.findViewById(R.id.tv_box_info);
-        mVBoxBg = (PkArenaBoxBgView) findViewById(R.id.v_box_bg);
+        mVBoxBg = (PkArenaBoxBgView) mRootView.findViewById(R.id.v_box_bg);
+        mVRotateRay = (BoxRotateRayView) mRootView.findViewById(R.id.v_rotate_ray);
+    }
+
+    public void showBox() {
+        reset();
+        setVisibility(View.VISIBLE);
+
+        mTvBoxInfo.setText(Html.fromHtml("差<font color='#f8e71c'>10000</font>星光值开启宝箱!"));//4test
+
+        mAnim = ObjectAnimator.ofFloat(0f, 1f);
+        mAnim.setDuration(300);
+        mAnim.setInterpolator(new OvershootInterpolator());
+        mAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float scale = (float) animation.getAnimatedValue();
+                setScaleX(scale);
+                setScaleY(scale);
+            }
+        });
+        mAnim.start();
+
+        mVRotateRay.start();
+
+        mDelayHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                changeToSmall();
+            }
+        }, 3000);
     }
 
     public void changeToSmall() {
+        mVRotateRay.stop();
+        mVRotateRay.setVisibility(GONE);
         mTvBoxTitle.setVisibility(GONE);
         mTvBoxDesc.setVisibility(GONE);
         mAnim = ObjectAnimator.ofFloat(1, 0);
@@ -82,13 +119,29 @@ public class PkArenaBoxViewV2 extends FrameLayout {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 mTvBoxInfo.setVisibility(VISIBLE);
-                mTvBoxInfo.requestFocus();
-                mTvBoxInfo.requestFocusFromTouch();
+                mTvBoxInfo.setSelected(true);
             }
         });
 
         mAnim.start();
 
+    }
+
+    public void setInfoText(String text) {
+        mAnim = ObjectAnimator.ofInt(0, mTvBoxInfo.getHeight());
+        mAnim.setRepeatMode(ValueAnimator.REVERSE);
+        mAnim.setRepeatCount(1);
+        mAnim.setDuration(100);
+        ScrollAnimListener animListener = new ScrollAnimListener(mTvBoxInfo, text);
+        mAnim.addUpdateListener(animListener);
+        mAnim.addListener(animListener);
+        mAnim.start();
+    }
+
+    public void openChestAnim() {
+        if (mIvBoxIcon.getDrawable() instanceof AnimationDrawable) {
+            ((AnimationDrawable) mIvBoxIcon.getDrawable()).start();
+        }
     }
 
     private void changeBgView(float index) {
@@ -107,12 +160,41 @@ public class PkArenaBoxViewV2 extends FrameLayout {
     }
 
     public void reset() {
+        mDelayHandler.removeCallbacksAndMessages(null);
+        mVRotateRay.setVisibility(VISIBLE);
         mTvBoxTitle.setVisibility(VISIBLE);
         mTvBoxDesc.setVisibility(VISIBLE);
-        mTvBoxInfo.setVisibility(GONE);
+        mTvBoxInfo.setTranslationY(0f);
+        mTvBoxInfo.setVisibility(INVISIBLE);
         changeIconView(1);
         changeBgView(1);
         requestLayout();
+        mIvBoxIcon.setImageResource(R.drawable.hani_pk_arena_chest_box_anim);
+        setVisibility(INVISIBLE);
+    }
 
+
+    private class ScrollAnimListener extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
+        private TextView tv;
+        private String text;
+        private int indexY = 1;
+
+        public ScrollAnimListener(TextView mTvBoxInfo, String text) {
+            this.tv = mTvBoxInfo;
+            this.text = text;
+        }
+
+        @Override
+        public void onAnimationUpdate(ValueAnimator animation) {
+            int translateY = indexY * (int) animation.getAnimatedValue();
+            tv.setTranslationY(translateY);
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+            super.onAnimationRepeat(animation);
+            tv.setText(Html.fromHtml(text));
+            indexY = -1;
+        }
     }
 }

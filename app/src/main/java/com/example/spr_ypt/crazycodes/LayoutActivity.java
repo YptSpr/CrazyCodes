@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Html;
 import android.view.View;
-import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -87,17 +86,15 @@ public class LayoutActivity extends Activity {
                 mVBox.setProgressRate((float) Math.random());
                 mRoatateDrawable.startCountDown(0, 3000);//4test
 
-                mVBoxV2.setVisibility(View.VISIBLE);
-                mVBoxV2.reset();
-                mVBoxV2.setScaleX(0f);
-                mVBoxV2.setScaleY(0f);
-                mVBoxV2.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(new OvershootInterpolator()).setDuration(300).start();
+                mVBoxV2.showBox();
+
                 mVBoxV2.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        mVBoxV2.changeToSmall();
+                        mVBoxV2.openChestAnim();
+                        mVBoxV2.setInfoText("我是<font color='#e87400'>测试</font>的文案");
                     }
-                },3000);
+                }, 5000);
 
             }
         });
