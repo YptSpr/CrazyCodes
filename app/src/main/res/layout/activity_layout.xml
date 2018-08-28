@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    >
+    android:background="@drawable/test_live_bg">
 
     <!--<com.example.spr_ypt.crazycodes.test4Layout.MyView-->
     <!--android:id="@+id/mv_test"-->
@@ -52,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="250dp"
         android:visibility="invisible" />
 
 </RelativeLayout>

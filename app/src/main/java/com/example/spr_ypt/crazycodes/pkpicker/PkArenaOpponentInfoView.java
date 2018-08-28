@@ -206,14 +206,12 @@ public class PkArenaOpponentInfoView extends RelativeLayout {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 getLayoutParams().width = (int) animation.getAnimatedValue();
-                requestLayout();
             }
         });
         animator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 getLayoutParams().height = (int) animation.getAnimatedValue();
-                requestLayout();
             }
         });
 
@@ -253,14 +251,12 @@ public class PkArenaOpponentInfoView extends RelativeLayout {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 getLayoutParams().width = (int) animation.getAnimatedValue();
-                requestLayout();
             }
         });
         animator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 getLayoutParams().height = (int) animation.getAnimatedValue();
-                requestLayout();
             }
         });
 

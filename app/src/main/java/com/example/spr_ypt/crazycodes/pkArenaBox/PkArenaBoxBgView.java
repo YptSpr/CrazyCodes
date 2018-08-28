@@ -45,6 +45,7 @@ public class PkArenaBoxBgView extends View {
             if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) getLayoutParams()).setMargins(0, 0, 0, (int) ((1 - index) * getResources().getDimension(R.dimen.demin_24dp)));
             }
+            invalidate();
         }
 //        requestLayout();//需要父布局调用requestLayout来改变整体布局
 
@@ -55,8 +56,9 @@ public class PkArenaBoxBgView extends View {
         super.onDraw(canvas);
         if (null == mPaint) {
             mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            mPaint.setColor(Color.parseColor("#99000000"));
+            mPaint.setColor(Color.parseColor("#000000"));
         }
+        mPaint.setAlpha((int) (255*(0.5+0.3*(1-index))));
         RectF rectF = new RectF(0, 0, canvas.getWidth(), canvas.getHeight());
         float r = (1 - index) * getResources().getDimension(R.dimen.demin_20dp) / 2;
         canvas.drawRoundRect(rectF, r, r, mPaint);

@@ -108,9 +108,7 @@ public class PkArenaBoxViewV2 extends FrameLayout {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float index = (float) animation.getAnimatedValue();
-                changeIconView(index);
-                changeBgView(index);
-                requestLayout();
+                changeAnim(index);
             }
         });
 
@@ -131,11 +129,15 @@ public class PkArenaBoxViewV2 extends FrameLayout {
         mAnim = ObjectAnimator.ofInt(0, mTvBoxInfo.getHeight());
         mAnim.setRepeatMode(ValueAnimator.REVERSE);
         mAnim.setRepeatCount(1);
-        mAnim.setDuration(100);
+        mAnim.setDuration(250);
         ScrollAnimListener animListener = new ScrollAnimListener(mTvBoxInfo, text);
         mAnim.addUpdateListener(animListener);
         mAnim.addListener(animListener);
         mAnim.start();
+    }
+
+    public void setInfoTextWithoutAnim(String text){
+        mTvBoxInfo.setText(Html.fromHtml(text));
     }
 
     public void openChestAnim() {
@@ -150,10 +152,10 @@ public class PkArenaBoxViewV2 extends FrameLayout {
 
     private void changeIconView(float index) {
         if (null != mIvBoxIcon.getLayoutParams()) {
-            mIvBoxIcon.getLayoutParams().width = (int) (getResources().getDimension(R.dimen.demin_36dp) + index * getResources().getDimension(R.dimen.demin_114dp));
-            mIvBoxIcon.getLayoutParams().height = (int) (getResources().getDimension(R.dimen.demin_36dp) + index * getResources().getDimension(R.dimen.demin_114dp));
+            mIvBoxIcon.getLayoutParams().width = (int) (getResources().getDimension(R.dimen.demin_36dp) + index * getResources().getDimension(R.dimen.demin_84dp));
+            mIvBoxIcon.getLayoutParams().height = (int) (getResources().getDimension(R.dimen.demin_36dp) + index * getResources().getDimension(R.dimen.demin_84dp));
             if (mIvBoxIcon.getLayoutParams() instanceof MarginLayoutParams) {
-                ((MarginLayoutParams) mIvBoxIcon.getLayoutParams()).setMargins(0, (int) (index * getResources().getDimension(R.dimen.demin_15dp)), 0, (int) getResources().getDimension(R.dimen.demin_45dp));
+                ((MarginLayoutParams) mIvBoxIcon.getLayoutParams()).setMargins(0, (int) (index * getResources().getDimension(R.dimen.demin_30dp)), 0, (int) getResources().getDimension(R.dimen.demin_45dp));
             }
         }
 
@@ -166,11 +168,15 @@ public class PkArenaBoxViewV2 extends FrameLayout {
         mTvBoxDesc.setVisibility(VISIBLE);
         mTvBoxInfo.setTranslationY(0f);
         mTvBoxInfo.setVisibility(INVISIBLE);
-        changeIconView(1);
-        changeBgView(1);
-        requestLayout();
+        changeAnim(1);
         mIvBoxIcon.setImageResource(R.drawable.hani_pk_arena_chest_box_anim);
         setVisibility(INVISIBLE);
+    }
+
+    private void changeAnim(float i) {
+        changeIconView(i);
+        changeBgView(i);
+        mIvBoxIcon.requestLayout();
     }
 
 

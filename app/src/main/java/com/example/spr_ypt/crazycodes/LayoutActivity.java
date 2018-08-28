@@ -107,10 +107,10 @@ public class LayoutActivity extends Activity {
                 index = ++index % 2;
                 switch (index) {
                     case 0:
-                        mVBoxV2.reset();
+                        mVBoxV2.setInfoText("我是<font color='#e87400'>测试</font>的文案TestTestTestTestTestTest");
                         break;
                     case 1:
-                        mVBoxV2.changeToSmall();
+                        mVBoxV2.setInfoText("差<font color='#f8e71c'>10000</font>星光值开启宝箱TestTestTestTest");
                         break;
                 }
             }
