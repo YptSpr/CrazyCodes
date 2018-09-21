@@ -2,6 +2,7 @@ package com.example.spr_ypt.crazycodes;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -164,6 +165,11 @@ public class GranzortView extends View {
      * 初始化属性动画触发器
      */
     private void initAnimator() {
+
+        View view=new View(getContext());
+
+        ObjectAnimator.ofFloat(view,view.ALPHA,0F,1F);
+
         valueAnimator = ValueAnimator.ofFloat(0, 1).setDuration(duration);
         valueAnimator.setRepeatCount(2);
 
@@ -177,6 +183,7 @@ public class GranzortView extends View {
      * 初始化属性动画触发器监听
      */
     private void initAnimatorListener() {
+
         animatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
