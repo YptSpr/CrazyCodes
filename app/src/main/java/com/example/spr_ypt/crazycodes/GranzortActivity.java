@@ -25,12 +25,12 @@ public class GranzortActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mVGranzort.restartAnim();
 
-                ValueAnimator animator1 = ObjectAnimator.ofFloat(mVGranzort, "scaleX", 0.5f, 1f);
-                ValueAnimator animator2 = ObjectAnimator.ofFloat(mVGranzort, mVGranzort.SCALE_Y, 0.5f, 1f);
+//                ValueAnimator animator1 = ObjectAnimator.ofFloat(mVGranzort, "scaleX", 0.5f, 1f);
+//                ValueAnimator animator2 = ObjectAnimator.ofFloat(mVGranzort, mVGranzort.SCALE_Y, 0.5f, 1f);
 
-                AnimatorSet set = new AnimatorSet();
-                set.playTogether(animator1, animator2);
-                set.start();
+//                AnimatorSet set = new AnimatorSet();
+//                set.playTogether(animator1, animator2);
+//                set.start();
             }
         });
 

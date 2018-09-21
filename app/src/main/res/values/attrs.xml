@@ -10,4 +10,10 @@
         <attr name="paintColor" format="color" />
         <attr name="panding" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="hollowCircleProgressView">
+        <attr name="hollowcircle_progress_color" format="reference|color" />
+        <attr name="hollowcircle_progress_width" format="dimension" />
+        <attr name="limit_color" format="reference|color" />
+    </declare-styleable>
 </resources>

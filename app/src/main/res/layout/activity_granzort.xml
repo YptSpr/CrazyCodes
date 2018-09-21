@@ -11,8 +11,6 @@
         >
         <com.example.spr_ypt.crazycodes.GranzortView
             android:id="@+id/v_granzort"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>

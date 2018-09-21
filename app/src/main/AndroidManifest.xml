@@ -43,11 +43,7 @@
         </activity>
         <activity android:name=".HandlerTestActivity"></activity>
         <activity android:name=".RankedGameActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".LottieActivity">
@@ -61,6 +57,14 @@
         </activity>
 
         <activity android:name=".GranzortActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".HollowCircleProgressActivity" >
 
         </activity>
     </application>
