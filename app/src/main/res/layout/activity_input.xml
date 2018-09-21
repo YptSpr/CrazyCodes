@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:isScrollContainer="false"
+    >
+
+
+
+    <FrameLayout
+        android:id="@+id/fl_input"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        />
+
+    <TextView
+        android:id="@+id/et_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/hani_view_ranked_game_matching_btn_bg"
+        android:gravity="center"
+        android:text="来点我呀~！！！！"
+        android:textSize="18dp" />
+</FrameLayout>
