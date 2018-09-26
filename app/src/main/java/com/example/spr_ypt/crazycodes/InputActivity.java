@@ -35,7 +35,7 @@ public class InputActivity extends Activity {
         mEtInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputManager.showSpeak(getWindow().getDecorView());
+                inputManager.showPanel(getWindow().getDecorView());
             }
         });
 

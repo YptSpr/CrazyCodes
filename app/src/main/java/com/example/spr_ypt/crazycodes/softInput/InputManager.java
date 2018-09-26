@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -102,7 +103,7 @@ public class InputManager {
         popWindow.setBackgroundDrawable(new BitmapDrawable());
         // 软键盘不会挡着popupwindow
         popWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE |
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
@@ -224,8 +225,6 @@ public class InputManager {
 //                }
 
 
-
-
                 int difference = getScreenSize(mContext)[1] - r.bottom;
 
                 Log.e("spr_ypt=>inputPop", "onMeasure: [difference]=<" + difference + ">");
@@ -318,7 +317,14 @@ public class InputManager {
 //                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 
 
-//        mImm.showSoftInputFromInputMethod(mEtInput.getWindowToken(), 0);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mImm.showSoftInput(mEtInput, 0);
+            }
+        }, 50);
+
+
         // 设置菜单显示的位置
         popWindow.showAtLocation(parent, Gravity.BOTTOM, 0, 0);
         isSoftInputShow = true;
@@ -329,6 +335,18 @@ public class InputManager {
 
         // 优化显示效果
 
+
+    }
+
+    public void showPanel(View parent){
+        if (isShowing()) {
+            return;
+        }
+        this.parent = parent;
+        mVTest.setVisibility(View.VISIBLE);
+
+        popWindow.showAtLocation(parent, Gravity.BOTTOM, 0, 0);
+        isSoftInputShow = false;
 
     }
 

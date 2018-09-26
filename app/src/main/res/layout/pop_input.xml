@@ -33,7 +33,7 @@
     <com.example.spr_ypt.crazycodes.softInput.MyTestView
         android:id="@+id/v_test"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="200dp"
         android:background="#66FF0000" />
 
 </com.example.spr_ypt.crazycodes.softInput.KeyBoardRelativeLayout>
