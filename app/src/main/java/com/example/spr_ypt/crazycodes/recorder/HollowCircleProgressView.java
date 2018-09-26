@@ -71,11 +71,14 @@ public class HollowCircleProgressView extends View {
         mLimitPaint.setStrokeWidth(progressWidth);
     }
 
-
+    RectF rectF = new RectF();
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        RectF rectF = new RectF(progressWidth / 2, progressWidth / 2, canvas.getWidth() - progressWidth / 2, canvas.getHeight() - progressWidth / 2);
+        rectF.left = progressWidth / 2;
+        rectF.top = progressWidth / 2;
+        rectF.right = getWidth() - progressWidth / 2;
+        rectF.bottom = getHeight() - progressWidth / 2;
         if (limitSweep > sweep) {
             canvas.drawArc(rectF, -90, limitSweep, false, mLimitPaint);
         }
