@@ -19,6 +19,8 @@
         android:background="@android:color/holo_green_light"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="20dp"
         >
 
     </android.support.v7.widget.RecyclerView>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.spr_ypt.crazycodes.recorder.HollowCircleProgressView;
 
@@ -41,6 +42,14 @@ public class HollowCircleProgressActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (anim.isRunning()) anim.cancel();
                 anim.start();
+
+                String str = "[/v587][/1235]";
+
+                str = str.replaceAll("\\[/v587\\]", "v587");
+
+                Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
+
+
             }
         });
     }

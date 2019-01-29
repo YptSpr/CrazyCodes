@@ -29,5 +29,7 @@
     <dimen name="demin_15dp">15dp</dimen>
     <dimen name="demin_30dp">30dp</dimen>
     <dimen name="demin_45dp">45dp</dimen>
+    <dimen name="demin_3dp">3dp</dimen>
+    <dimen name="demin_50dp">50dp</dimen>
 
 </resources>

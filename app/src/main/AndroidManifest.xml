@@ -60,7 +60,11 @@
 
         </activity>
 
-        <activity android:name=".HollowCircleProgressActivity" >
+        <activity android:name=".HollowCircleProgressActivity">
+
+        </activity>
+
+        <activity android:name=".ProgressViewTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
